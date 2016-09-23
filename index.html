@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.css' />
+    <script src='/angular/angular.js'></script>
+    <script src='/angular-ui-router/release/angular-ui-router.js'></script>
+    <script src='/app.js'></script>
+
+    <script src='/region/RegionService.js'></script>
+    <script src='/salesPerson/SalesPersonService.js'></script>
+
+    <script src='/CompanyStatusCtrl.js'></script>
+    <script src='/region/RegionsListCtrl.js'></script>
+    <script src='/salesPerson/SalesPeopleListCtrl.js'></script>
+    <script src='/routes.js'></script>
+  </head>
+  <body ng-app='sales'>
+    <div class='container'>
+      <h1>Acme Assignments Angular</h1>
+      <ul class='nav nav-tabs' style='margin-bottom:10px'>
+        <li ui-sref-active='active'>
+          <a ui-sref='home'>
+            Home
+          </a>
+        </li>
+        <li ui-sref-active='active'>
+          <a ui-sref='regions'>
+            Regions
+          </a>
+        </li>
+        <li ui-sref-active='active'>
+          <a ui-sref='salesPeople'>
+            SalesPeople
+          </a>
+        </li>
+      </ul>
+    <div ng-controller='CompanyStatusCtrl'>
+      <ul class='list-group'>
+        <li class='list-group-item' ng-class="{'list-group-item-success': salesPeople.length > 3 }">
+          We have {{ salesPeople.length }} sales people!
+        </li>
+        <li class='list-group-item' ng-class="{'list-group-item-success': regions.length > 3 }">
+          We have {{ regions.length }} regions!
+        </li>
+      </ul>
+    </div>
+    <ui-view></ui-view>
+    </div>
+  </body>
+</html>

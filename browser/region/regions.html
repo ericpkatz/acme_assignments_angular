@@ -1,0 +1,13 @@
+<div class='well'>
+  <div class='form-group'>
+    <input class='form-control' ng-model='region.zip' placeholder='region zip' />
+  </div>
+  <button ng-disabled='!region.zip' class='btn btn-primary' ng-click='create()'>Create Region</button>
+</div>
+<ul class='list-group'>
+  <li ng-repeat='region in regions' class='list-group-item'>
+    {{ region.zip }}
+    <button ng-click='destroy(region)' class='btn btn-danger pull-right'>Delete</button>
+    <br clear='all' />
+  </li>
+</ul>

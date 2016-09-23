@@ -1,0 +1,20 @@
+<div class='well'>
+  <div class='form-group'>
+    <input class='form-control' ng-model='salesPerson.name' placeholder='sales person name' />
+  </div>
+  <button ng-disabled='!salesPerson.name' class='btn btn-primary' ng-click='create()'>Create Sales Person</button>
+</div>
+<ul class='list-group'>
+  <li ng-repeat='salesPerson in salesPeople' class='list-group-item'>
+    {{ salesPerson.name }}
+    <button ng-click='destroy(salesPerson)' class='btn btn-danger pull-right'>Delete</button>
+    <br clear='all' />
+      <ul class='list-group' style='margin-top: 10px'>
+        <li ng-repeat='region in regions' class='list-group-item' ng-class='{"list-group-item-success": hasRegion(salesPerson, region) }'>
+          <a ng-click='toggleAssignment(salesPerson, region)'>
+            {{ region.zip }}
+          </a>
+        </li>
+      </ul>
+  </li>
+</ul>
